@@ -1,0 +1,14 @@
+carregamento de arquivos
+
+    - A lib fs
+    ->Nesta aula, aprendemos como usar a biblioteca fs do Node.js para acessar e ler arquivos do sistema.
+    -> Importação do fs: Demonstra como importar o módulo fs (File System) para interagir com arquivos.
+
+    -> Função pegaArquivo: Explica a criação de uma função que recebe o caminho de um arquivo, lê seu conteúdo e o exibe no console, utilizando a biblioteca chalk para colorir o texto.
+
+    -> Leitura de Arquivo: Usa o método fs.readFile para ler o conteúdo de um arquivo especificado e trata o resultado, exibindo o texto no console.
+
+    -> Tratamento de Erros: Aborda brevemente o tratamento de erros na leitura do arquivo, substituindo o parâmetro de erro por _ para indicar que ele está sendo ignorado temporariamente.
+
+    -> Execução e Teste: Mostra como executar o código Node.js para ler e exibir o conteúdo do arquivo no terminal, verificando se a leitura foi bem-sucedida.
+
