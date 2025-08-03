@@ -1,14 +1,74 @@
 carregamento de arquivos
 
     - A lib fs
-    ->Nesta aula, aprendemos como usar a biblioteca fs do Node.js para acessar e ler arquivos do sistema.
-    -> Importação do fs: Demonstra como importar o módulo fs (File System) para interagir com arquivos.
+        ->Nesta aula, aprendemos como usar a biblioteca fs do Node.js para acessar e ler arquivos do sistema.
+        -> Importação do fs: Demonstra como importar o módulo fs (File System) para interagir com arquivos.
 
-    -> Função pegaArquivo: Explica a criação de uma função que recebe o caminho de um arquivo, lê seu conteúdo e o exibe no console, utilizando a biblioteca chalk para colorir o texto.
+        -> Função pegaArquivo: Explica a criação de uma função que recebe o caminho de um arquivo, lê seu conteúdo e o exibe no console, utilizando a biblioteca chalk para colorir o texto.
 
-    -> Leitura de Arquivo: Usa o método fs.readFile para ler o conteúdo de um arquivo especificado e trata o resultado, exibindo o texto no console.
+        -> Leitura de Arquivo: Usa o método fs.readFile para ler o conteúdo de um arquivo especificado e trata o resultado, exibindo o texto no console.
 
-    -> Tratamento de Erros: Aborda brevemente o tratamento de erros na leitura do arquivo, substituindo o parâmetro de erro por _ para indicar que ele está sendo ignorado temporariamente.
+        -> Tratamento de Erros: Aborda brevemente o tratamento de erros na leitura do arquivo, substituindo o parâmetro de erro por _ para indicar que ele está sendo ignorado temporariamente.
 
-    -> Execução e Teste: Mostra como executar o código Node.js para ler e exibir o conteúdo do arquivo no terminal, verificando se a leitura foi bem-sucedida.
+        -> Execução e Teste: Mostra como executar o código Node.js para ler e exibir o conteúdo do arquivo no terminal, verificando se a leitura foi bem-sucedida.
+
+    - tratamento de erros
+        -> Olá! Tudo bem?Nesta aula, aprendemos sobre a importância do tratamento de erros em Node.js. 
+        
+        -> A instrutora Juliana Amoasei nos ensinou como refatorar a função pegaArquivo para lidar com possíveis erros durante a leitura de arquivos.
+        
+        -> Principais pontos abordados:
+
+        -> Identificação de erros: Erros podem ocorrer durante a execução de um programa, como arquivo não encontrado ou diretório inválido.
+
+        -> Função trataErro: Criamos uma função para tratar os erros, utilizando a palavra-chave throw para lançar o erro e interromper a execução do programa.
+
+        -> Captura de erros: O readFile passa erros para frente, sinalizando-os, quando eles acontecem.
+
+        -> Personalização da mensagem de erro: Usamos a biblioteca Chalk para colorir a mensagem de erro e torná-la mais clara para o usuário.
+
+        -> Códigos de erro: Exploramos os códigos de erro para entender a causa do problema e realizar verificações específicas.
+
+        -> Objeto de erro: Analisamos o objeto de erro, que contém informações como o número do erro, o código e a chamada do sistema que gerou o erro.
+
+        -> Em resumo, a aula nos mostrou como criar um tratamento de erros eficiente em Node.js, fornecendo informações claras e úteis para o usuário em caso de falhas na execução do programa.
+
+    - Promessas
+        -> Nesta aula, aprendemos sobre a importância de lidar com arquivos externos de forma assíncrona em JavaScript, especialmente quando não podemos prever o tamanho ou a quantidade de links nesses arquivos.
+        
+        -> Foi explicado a diferença entre código síncrono e assíncrono, usando analogias com comunicação via rádio (síncrona) e aplicativos de mensagem (assíncrona).
+        
+        -> Para lidar com a assincronicidade, refatoramos a função pegaArquivo para usar o método fs.promises.readFile em conjunto com .then e .catch para lidar com o sucesso ou falha da leitura do arquivo.
+        
+        -> Foi apresentado o conceito de "promises" em JavaScript, destacando que não podemos obter o valor de um código assíncrono de forma síncrona, mas sim usar métodos como .then para resolver a promessa e obter o valor.
+        
+        ->Além disso, foi demonstrado como o .catch é usado para capturar erros que podem ocorrer durante o processo assíncrono.
+
+        -> Assim, concluímos que sempre temos que ter em mente os estados possíveis de qualquer promessa em JavaScript:
+            * Promessas podem ser concluídas de duas formas: fulfilled (realizada, completa) ou rejected (rejeitada), o que equivale a duas situações possíveis, ou a promessa se concretizou (retornou os dados ou executou o código que deveria) ou não.
+
+            * Promessas que não estão fulfilled nem rejected estão pending (pendentes). Ou seja, ainda não é possível saber o resultado final porque o processamento ainda não foi concluído.
+
+            * Após a finalização do processamento, a promessa passa para o estado de settled (concluída), independente do resultado.
+
+            * Uma vez que a promessa está settled seu resultado não se altera mais. Ou seja, uma promessa que se concluiu como rejected não muda mais para o estado de fulfilled e vice-versa.
+    -async/await
+        -> Nesta aula, aprendemos a resolver promises em JavaScript utilizando as palavras-chave async e await, uma alternativa mais recente ao método then.
+        
+        -> Primeiro, convertemos a função pegaArquivo para usar async e await, o que nos permite escrever código assíncrono de forma semelhante ao código síncrono. 
+        
+        -> Adicionamos async antes da declaração da função para torná-la assíncrona e await antes da chamada de fs.promises.readFile para aguardar a resolução da promise.
+        
+        -> Em seguida, implementamos um bloco try/catch para lidar com erros. 
+        
+        -> O bloco try contém o código que queremos executar, enquanto o bloco catch captura qualquer erro que ocorra e chama a função trataErro para tratá-lo.
+        
+        -> Por fim, comparamos os métodos then e async/await, destacando que ambos funcionam de forma similar em termos de processamento e performance, mas async/await oferece uma sintaxe mais semelhante ao código síncrono, facilitando a leitura e o entendimento do código assíncrono.
+
+-> Nessa aula, você aprendeu:
+    => Que podemos utilizar a lib fs (File System, ou sistema de arquivos) nativa do JavaScript para que o programa consiga acessar e ler arquivos do computador;
+
+    => Que conseguimos capturar mensagens de erro enviadas pelo Node.js quando algo no programa não sai como o esperado utilizando a palavra-chave throw, ou lançar;
+
+    => Que as “promessas” são a forma que o JavaScript utiliza para trabalhar com código assíncrono e que podemos resolvê-las utilizando em conjunto as palavras-chave async e await ou o método .then().
 
