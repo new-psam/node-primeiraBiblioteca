@@ -1,0 +1,42 @@
+Usando a Linha de Comando
+    - Executando Comandos
+        -> Nesta aula, aprendemos a criar uma interface de linha de comando (CLI) para nossa biblioteca Node.js. O objetivo é permitir que o usuário passe o caminho de um arquivo Markdown como argumento ao executar o script, em vez de ter o caminho fixo no código.
+        
+        -> Principais pontos abordados:
+        -> Objeto process.argv:
+            * O objeto process.argv do Node.js é usado para acessar os argumentos passados na linha de comando.
+            * Ele retorna um array, onde os dois primeiros elementos são o caminho para o executável do Node.js e o caminho para o script que está   sendo executado, respectivamente.
+            * Os elementos subsequentes do array representam os argumentos adicionais passados pelo usuário.
+
+
+        -> Criando o arquivo cli.js:
+            * Um novo arquivo chamado cli.js é criado para lidar com a lógica da linha de comando.
+            * Este arquivo importa a função pegaArquivo do arquivo index.js (onde a função é definida).
+            * Ele acessa o caminho do arquivo Markdown fornecido pelo usuário através do process.argv e passa esse caminho para a função pegaArquivo.
+
+
+        -> Exportando e Importando a função pegaArquivo:
+            * A função pegaArquivo é exportada do arquivo index.js usando export default pegaArquivo;.
+            * Ela é importada no arquivo cli.js usando import pegaArquivo from './index.js';.
+
+
+        -> Executando o script com argumentos:
+            * O script é executado a partir da linha de comando usando o comando node src/cli.js ./arquivos/texto.md, onde ./arquivos/texto.md é o caminho para o arquivo Markdown.
+            * O cli.js processa este caminho e o passa para a função pegaArquivo, que então lê e processa o arquivo.
+
+
+
+        ->Em resumo, a aula ensina como criar uma CLI simples para receber um caminho de arquivo como entrada e passá-lo para uma função em nossa biblioteca, tornando-a mais flexível e reutilizável.
+
+    - Organizando entradas e saídas
+        -> Nesta aula, o foco é aprimorar a organização e a exibição dos resultados da linha de comando (CLI) ao interagir com arquivos.
+        
+        -> Inicialmente, a responsabilidade de exibir os resultados na tela é removida da função pegaArquivo, que passa a apenas retornar o resultado da extração de links. 
+        
+        -> A biblioteca chalk é introduzida para melhorar a identificação visual dos resultados no terminal.
+        
+        -> A função processaTexto é criada para receber o caminho do arquivo, chamar pegaArquivo e exibir os resultados formatados no console. 
+        
+        -> A aula aborda a importância de lidar com promessas (Promises) em JavaScript ao trabalhar com operações assíncronas, como a leitura de arquivos, utilizando async e await para garantir que os resultados sejam processados corretamente.
+        
+        -> Além disso, a aula também ensina a verificar se um arquivo contém links antes de exibi-los, retornando uma mensagem informativa caso nenhum link seja encontrado.

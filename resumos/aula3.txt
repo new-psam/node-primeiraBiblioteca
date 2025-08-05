@@ -1,0 +1,55 @@
+Capturando links
+
+    -Expressões regulares
+        -> Nesta aula, aprendemos sobre expressões regulares (regex) em JavaScript e como elas podem ser usadas para capturar padrões específicos em textos.
+        
+        ->Você viu como usar metacaracteres e classes de caracteres para construir padrões de busca, como identificar letras, números, espaços em branco e caracteres especiais.
+        
+        ->Além disso, você aprendeu a usar o site regex101.com para testar expressões regulares e como elas podem ser aplicadas para identificar padrões específicos em um texto, como links em Markdown (títulos entre colchetes seguidos por URLs entre parênteses).
+        
+        ->Foi criada uma expressão regular para encontrar todos os textos entre colchetes, que é o primeiro passo para identificar os links em um arquivo Markdown.
+
+    - Classes e grupos
+        -> Nesta aula, aprendemos a criar uma expressão regular para capturar URLs dentro de um texto. 
+        
+        -> A instrutora explica como usar metacaracteres como parênteses, colchetes, interrogações e barras invertidas para construir a expressão.
+        
+        -> Ela demonstra como identificar padrões como "http" ou "https" no início das URLs e como usar classes de caracteres para pegar tudo que não seja espaços em branco, interrogações, cerquilhas e pontos.
+        
+        ->Ao final, a instrutora mostra a expressão completa para capturar as URLs e comenta sobre como juntar essa parte da expressão com a primeira parte no próximo vídeo.
+
+    - Capturando grupos
+        -> Nesta aula, aprendemos a usar expressões regulares (Regex) em JavaScript para extrair links de um texto, separando o título (dentro de colchetes) e a URL (dentro de parênteses).
+        
+        -> Principais pontos:
+
+        -> Expressão Regular: 
+            * Criamos uma Regex para identificar padrões de links, utilizando grupos para capturar o título e a URL separadamente.
+        -> Grupos em Regex: 
+            * Usamos parênteses () na Regex para definir grupos de captura, permitindo extrair partes específicas do padrão correspondente.
+        -> Métodos em JavaScript:
+            * match(): Usado inicialmente para encontrar todas as correspondências da Regex no texto, mas retorna o trecho completo, incluindo colchetes e parênteses.
+        -> exec(): 
+            * Usado para obter as correspondências em grupos separados (título e URL), permitindo acessar cada grupo individualmente.
+
+        -> Iteração: 
+            * O método exec() encontra apenas a primeira ocorrência. Para encontrar todas as ocorrências, será necessário iterar sobre o texto.
+
+    - Retornando os links
+        -> Nesta aula, o objetivo é aprimorar a função de extração de links de um texto Markdown.
+        
+        -> Inicialmente, a função retornava apenas a primeira ocorrência de link. 
+        
+        -> Para solucionar isso, foi apresentado o método matchAll do JavaScript, que retorna um objeto iterável com todas as correspondências encontradas.
+        
+        -> Para transformar esse objeto iterável em um array, foi utilizado o spread operator (...). 
+        
+        -> Em seguida, o método map foi aplicado para percorrer o array de capturas e formatar os resultados em um novo array de objetos, onde cada objeto contém o título do link como chave e a URL como valor.
+        
+        -> Por fim, a função extraiLinks foi integrada à função pegaArquivo, que lê o arquivo Markdown, e o resultado da extração de links é exibido no console.
+
+Nessa aula, você aprendeu a:
+    => Como utilizar expressões regulares, uma sintaxe feita para reconhecer padrões de texto, para capturar links e URLs;
+    => Como utilizamos classes e grupos de expressões regulares para refinar a busca por estes padrões, além dos métodos que o JavaScript tem (por exemplo match e exec) para trazer os resultados e trabalhar com eles;
+    => Manipular os resultados extraídos do texto através de expressões regulares e montar um objeto de retorno utilizando a sintaxe do JavaScript e desestruturação de objetos com o spread operator ....
+
