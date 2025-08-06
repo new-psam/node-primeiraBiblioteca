@@ -40,3 +40,42 @@ Usando a Linha de Comando
         -> A aula aborda a importância de lidar com promessas (Promises) em JavaScript ao trabalhar com operações assíncronas, como a leitura de arquivos, utilizando async e await para garantir que os resultados sejam processados corretamente.
         
         -> Além disso, a aula também ensina a verificar se um arquivo contém links antes de exibi-los, retornando uma mensagem informativa caso nenhum link seja encontrado.
+
+    - Processando Diretórios
+        -> Olá! Nesta aula, aprendemos como aprimorar nossa biblioteca Node.js para que ela possa processar tanto arquivos individuais Markdown quanto diretórios contendo múltiplos arquivos Markdown.
+
+        -> Importação do Módulo fs: Adicionamos o módulo fs do Node.js para verificar se um caminho é um arquivo ou um diretório.
+
+        -> Função processaTexto Aprimorada: Modificamos a função processaTexto para receber um array de argumentos, permitindo que ela determine se o caminho fornecido é um arquivo ou um diretório.
+
+        -> Tratamento de Arquivos e Diretórios: Usamos fs.lstatSync para verificar se o caminho é um arquivo (isFile()) ou um diretório (isDirectory()). Se for um arquivo, processamos normalmente. Se for um diretório, lemos todos os arquivos dentro dele com fs.promises.readdir.
+
+        -> Leitura de Diretórios: Utilizamos fs.promises.readdir para ler o conteúdo de um diretório de forma assíncrona, garantindo que todos os arquivos sejam processados corretamente.
+
+        -> Iteração sobre Arquivos em um Diretório: Implementamos um loop forEach para iterar sobre cada arquivo encontrado no diretório e processá-lo individualmente com a função pegaArquivo.
+
+        -> Refatoração do Código: Removemos a responsabilidade de imprimir os resultados diretamente na função processaTexto e criamos uma função separada, imprimeLista, para essa finalidade, melhorando a organização e reutilização do código.
+
+    - Tratando novos Erros
+        -> Olá! Nesta aula, o foco foi aprimorar a experiência do usuário ao lidar com erros e identificar as listas de links geradas pela biblioteca.
+        
+        -> Primeiramente, foi implementado um tratamento de erros para exibir mensagens mais claras quando o usuário fornece um caminho de arquivo ou diretório inexistente.
+        
+        -> Em seguida, a aula abordou a identificação das listas de links, exibindo o nome do arquivo ao qual cada lista se refere. 
+        
+        -> Isso foi feito para facilitar o rastreamento e a compreensão das listas, especialmente quando se trabalha com diretórios contendo vários arquivos.
+
+    - scripts
+        -> Nesta aula, aprendemos como usar o arquivo "package.json" para adicionar scripts, que são listas de instruções para automatizar processos no programa. 
+
+        -> Criamos um script chamado "cli" que executa o comando node src/cli.js com os dois primeiros argumentos passados no terminal. 
+
+        -> Também aprendemos como passar o caminho do arquivo de forma "hard coded" no script para facilitar a execução do programa. 
+
+        -> No final, executamos o script usando o comando npm run cli e obtivemos a lista de links do arquivo especificado.
+
+* Nessa aula, você aprendeu:
+    * A utilizar a interface de linha de comando e como aplicamos a lib process do Node.js para capturar e utilizar os dados informados no terminal em nosso código;
+    * A organizar o código separando em arquivos as funções que lidam com entrada e saída de dados das funções que processam os links;
+    * Como fazer estes diversos arquivos conversarem entre si através da exportação e importação de módulos com import e export;
+    * Que scripts são instruções que usamos para automatizar tarefas e como escrever nossos próprios scripts, incluí-los no arquivo de configuração package.json e utilizá-los para executar comandos no terminal.

@@ -1,0 +1,44 @@
+Validando links
+
+    - Adicionando opções
+        -> Nesta aula, aprendemos a implementar a funcionalidade de validação de links em nossa biblioteca.
+
+        -> Identificação da necessidade de validação: A biblioteca agora pode identificar se o usuário deseja validar os links, através de um comando adicional na linha de comando (--valida).
+
+        -> Modificação do package.json: Foi adicionado um novo script, "cli:valida", que inclui o argumento --valida para indicar a necessidade de validação.
+
+        -> Captura do argumento --valida: No arquivo cli.js, a função processaTexto foi modificada para capturar o quarto argumento (índice 3) da linha de comando e armazená-lo na variável valida.
+
+        -> Criação do módulo http-validacao.js: Este novo módulo conterá a lógica para extrair URLs e validar os links.
+
+        -> Implementação da função listaValidada(): Esta função, dentro de http-validacao.js, recebe uma lista de links, valida-os e retorna o resultado. Por enquanto, ela apenas retorna a string "entrou na função" para fins de teste.
+
+        -> Integração da validação no cli.js: A função imprimeLista foi modificada para receber um parâmetro valida. Se valida for verdadeiro, a função chama listaValidada para validar os links antes de exibi-los. Caso contrário, a lista de links é exibida sem validação.
+
+        -> Teste da implementação: A aula demonstra como testar a implementação usando os comandos npm run cli (para exibir a lista de links sem validação) e npm run cli:valida (para exibir a lista de links com validação).
+
+    - Gerando um alista de URLs
+        -> Nesta aula, aprendemos a extrair URLs de uma lista de links, utilizando o método .map em conjunto com Object.values e .join(). 
+        
+        -> O objetivo é obter um array contendo apenas as URLs, removendo a estrutura de array intermediária.
+        
+        -> Primeiro, criamos a função extraiLinks que recebe um array de links (arrLinks). Em seguida, usamos o método .map para iterar sobre cada objeto link e extrair o valor da URL usando Object.values. 
+        
+        -> Para remover o array intermediário, concatenamos Object.values com o método join(), convertendo o array em uma string contendo apenas a URL.
+        
+        -> No final, a função listaValidada retorna a função extraiLinks com a lista de links como parâmetro, resultando em um array contendo apenas as URLs como strings.
+
+    - Validando links   
+        ->  Nesta aula, aprendemos a validar URLs, verificando se os sites estão ativos através dos códigos de status HTTP. 
+        -> Utilizamos a API Fetch do Node.js (a partir da versão 18) para fazer as requisições e obter os status codes.
+        -> Foi criada a função checaStatus para iterar sobre a lista de URLs, fazer as requisições com Fetch e retornar os status codes. 
+        -> Para lidar com a natureza assíncrona do Fetch e processar múltiplas URLs simultaneamente, utilizamos Promise.all para resolver todas as promessas pendentes.
+        -> Além disso, a aula abordou o tratamento de erros, como o "fetch failed" que ocorre quando um link não existe mais. Para corrigir isso, a função listaValidada foi transformada em assíncrona para aguardar a resolução do código em checaStatus.
+
+    - Montando o objeto 
+        -> Nesta aula, finalizamos a primeira versão da biblioteca, juntando todas as informações. 
+        -> Foi trabalhado no arquivo "http-validacao.js", dentro da função listaValidada, para retornar a lista pronta com suas validações.
+        -> O array de objetos original foi atualizado com os números de HTTP status encontrados. 
+        -> Para lidar com erros, foi criada a função manejaErros para tratar falhas no Fetch, retornando mensagens específicas para o usuário.
+        -> No final, o array de objetos é retornado com os status codes e mensagens de erro, caso ocorram. 
+        -> Além disso, foi mencionado que a biblioteca pode ser aprimorada com mais casos de validação e organização do código.

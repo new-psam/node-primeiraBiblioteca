@@ -31,9 +31,9 @@ async function pegaArquivo(caminhoDoArquivo){
         return extraiLinks(texto);
     }catch (erro)  {
         trataErro(erro);
-    } finally {
-        console.log(chalk.yellow('A operação foi concluída!!'));
-    }
+    } //finally {
+    //     console.log(chalk.yellow('A operação foi concluída!!'));
+    // }
     
 }
 
